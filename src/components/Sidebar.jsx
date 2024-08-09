@@ -7,7 +7,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li>
-          <Link to="/"><img src={require('../static/logo.png')} className='logo' alt="Logo" /></Link>
+          <Link to="/dashboard"><img src={require('../static/logo.png')} className='logo' alt="Logo" /></Link>
         </li>
         <li>
           <Link to="/logs">Logs</Link>
