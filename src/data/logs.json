@@ -1,0 +1,60 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "timestamp": "2024-08-07T12:00:00Z",
+      "type": "Error",
+      "message": "Failed to connect to database",
+      "details": "Error code 500"
+    },
+    {
+      "id": 2,
+      "timestamp": "2024-08-07T13:00:00Z",
+      "type": "Warning",
+      "message": "High memory usage",
+      "details": "Memory usage exceeded threshold"
+    },
+    {
+      "id": 3,
+      "timestamp": "2024-08-07T14:00:00Z",
+      "type": "Info",
+      "message": "User logged in",
+      "details": "User ID: 12345"
+    },
+    {
+      "id": 4,
+      "timestamp": "2024-08-07T15:00:00Z",
+      "type": "Error",
+      "message": "File upload failed",
+      "details": "File size exceeds limit"
+    },
+    {
+      "id": 5,
+      "timestamp": "2024-08-07T16:00:00Z",
+      "type": "Warning",
+      "message": "Disk space low",
+      "details": "Less than 10% disk space remaining"
+    },
+    {
+      "id": 6,
+      "timestamp": "2024-08-07T17:00:00Z",
+      "type": "Info",
+      "message": "Password changed",
+      "details": "User ID: 67890"
+    },
+    {
+      "id": 7,
+      "timestamp": "2024-08-07T18:00:00Z",
+      "type": "Error",
+      "message": "Network connectivity issue",
+      "details": "Unable to reach external server"
+    },
+    {
+      "id": 8,
+      "timestamp": "2024-08-07T19:00:00Z",
+      "type": "Info",
+      "message": "System update completed",
+      "details": "Version 1.2.3 deployed successfully"
+    }
+  ]
+}
