@@ -1,31 +1,35 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
-import Dashboard from './components/dashboard/Dashboard';
-import './chartConfig'; 
-import LogsPage from './components/LogsPage';
-import ReportPage from './components/ReportPage';
-import UserMgmt from './components/UserMgmt';
-import Profile from './components/Profile';
-import HelpPage from './components/HelpPage';
+
+import Login from './components/mainScripts/Login';
+import SIEMDashboard from './components/mainScripts/SIEMDashboard';
+import GeneralDashboard from './components/mainScripts/GeneralDashboard';
+import Settings from './components/mainScripts/Settings';
+import AgentStats from './components/mainScripts/AgentStats';
+import Support from './components/mainScripts/Support';
+import { AgentsProvider } from './components/mainScripts/AgentsContext'; // Import the provider
 
 function App() {
   return (
-    <div>
     <Router>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/logs" element={<LogsPage />} />
-          <Route path="/reports" element={<ReportPage />} />
-          <Route path="/user-management" element={<UserMgmt />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/help-support" element={<HelpPage />} />
-        </Routes>
+        {/* Wrap components that need access to agents data with AgentsProvider */}
+        <AgentsProvider>
+          <Routes>
+            {/* Login Route */}
+            <Route path="/" element={<Login />} />
+
+            {/* Dashboard and Content Routes */}
+            <Route path="/SIEMDashboard/*" element={<SIEMDashboard />}>
+              <Route path="GeneralDashboard" element={<GeneralDashboard />} />
+              <Route path="Agents" element={<AgentStats />} />
+              <Route path="Settings" element={<Settings />} />
+              <Route path="Support" element={<Support />} />
+            </Route>
+          </Routes>
+        </AgentsProvider>
       </div>
     </Router>
-    </div>
   );
 }
 

@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+.nimbus-header-container {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  background-color: #2b7fb7;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  justify-content: space-between;
+}
+
+.nimbus-header {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+}
+
+.menu-toggle .toggle-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  background-color: #4c728b;
+  overflow-x: hidden;
+  transition: all 0.3s;
+  padding-top: 130px; /* Adjusted to make space for the toggle button */
+  z-index: 99; /* Ensure it stays behind the toggle button */
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 20px 25px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: black;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Content Styles */
+.content {
+  flex-grow: 1;
+  padding: 40px 20px;
+  margin-left: 250px; /* Ensure the content starts after the sidebar */
+  transition: margin-left 0.3s; /* Smooth transition when sidebar is toggled */
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    left: -200px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar a {
+    font-size: 16px;
+  }
+
+  .nimbus-header {
+    font-size: 28px;
+  }
+
+  .menu-toggle {
+    font-size: 24px;
+    top: 160px;
+  }
+
+  .content {
+    padding: 20px 10px;
+    margin-left: 200px; /* Adjusted for mobile view */
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
