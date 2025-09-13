@@ -1,0 +1,84 @@
+/* General Page Styling */
+.alerts-page {
+  padding: 20px;
+  background-color: var(--background-color-light);
+  min-height: calc(100vh - 60px); /* Adjust based on header/footer height */
+  color: var(--text-color);
+}
+
+/* Alerts List Container */
+.alerts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual Alert Card Styling */
+.alert-card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-elevation-medium);
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid var(--border-color);
+}
+
+.alert-card:hover {
+  transform: translateY(-5px);
+}
+
+.alert-card h3 {
+  margin-top: 0;
+  color: var(--heading-color);
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.alert-card p {
+  margin-bottom: 8px;
+  color: var(--text-color-secondary);
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.alert-card p strong {
+  color: var(--text-color);
+}
+
+/* Severity Badges */
+.severity-high {
+  color: var(--color-danger);
+  font-weight: bold;
+}
+
+.severity-medium {
+  color: var(--color-warning);
+  font-weight: bold;
+}
+
+.severity-low {
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alerts-list {
+    grid-template-columns: 1fr;
+  }
+
+  .alerts-page {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alert-card {
+    padding: 15px;
+  }
+
+  .alert-card h3 {
+    font-size: 1.1em;
+  }
+}

@@ -1,79 +1,101 @@
-.dashboard {
-    display: flex;
+.user-mgmt-page {
+  padding: 20px;
+}
+
+.user-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.user-card {
+  /* Inherit general card styling from App.css */
+}
+
+.user-card h3 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.user-card p {
+  margin-bottom: 5px;
+  color: var(--light-text-color);
+}
+
+.user-status-active {
+  color: #2ecc71; /* A more modern green */
+  font-weight: bold;
+}
+
+.user-status-inactive {
+  color: #e74c3c; /* A more modern red */
+  font-weight: bold;
+}
+
+.user-status-pending {
+  color: #f39c12; /* A more modern orange */
+  font-weight: bold;
+}
+
+.user-details-card {
+  /* Inherit general card styling from App.css */
+  margin-top: 20px;
+}
+
+.user-details-card h3 {
+  color: var(--text-color);
+}
+
+.user-details-card p {
+  color: var(--light-text-color);
+}
+
+.add-user-form {
+  /* Inherit general card styling from App.css */
+  margin-top: 20px;
+}
+
+.add-user-form h3 {
+  color: var(--text-color);
+}
+
+.add-user-form label {
+  color: var(--text-color);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.add-user-form input[type="text"],
+.add-user-form input[type="email"],
+.add-user-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-user-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-user-form button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-list-container {
+    grid-template-columns: 1fr;
   }
-  
-  .dashboard-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .header {
-    margin-bottom: 20px;
-  }
-  
-  .header h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .user-list, .user-details, .add-user {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-  }
-  
-  .user-list h3, .user-details h3, .add-user h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #495057;
-  }
-  
-  .list-group-item {
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .list-group-item:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .list-group-item.active {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .user-details p {
-    font-size: 16px;
-    color: #6c757d;
-  }
-  
-  .user-details select {
-    margin-left: 10px;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-    padding: 5px;
-  }
-  
-  .add-user .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .add-user .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .add-user .btn-primary:hover {
-    background-color: #0056b3;
-  }
+}
   

@@ -127,3 +127,50 @@
     background-color: #5a6268;
   }
   
+  .report-page {
+    padding: 20px;
+  }
+  
+  .report-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .report-card {
+    /* Inherit general card styling from App.css */
+  }
+  
+  .report-card h3 {
+    margin-top: 0;
+    color: var(--text-color);
+  }
+  
+  .report-card p {
+    margin-bottom: 5px;
+    color: var(--light-text-color);
+  }
+  
+  .report-status-completed {
+    color: #2ecc71; /* A more modern green */
+    font-weight: bold;
+  }
+  
+  .report-status-pending {
+    color: #f39c12; /* A more modern orange */
+    font-weight: bold;
+  }
+  
+  .report-status-failed {
+    color: #e74c3c; /* A more modern red */
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .report-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  

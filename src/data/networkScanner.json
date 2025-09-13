@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "ipAddress": "192.168.1.1",
+    "deviceName": "Router",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:00:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T09:00:00Z",
+    "endTime": "2024-08-07T09:30:00Z",
+    "resultsSummary": "No issues found."
+  },
+  {
+    "id": "2",
+    "ipAddress": "192.168.1.10",
+    "deviceName": "Workstation-01",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:01:00Z",
+    "scanType": "Quick",
+    "startTime": "2024-08-07T09:45:00Z",
+    "endTime": "2024-08-07T09:50:00Z",
+    "resultsSummary": "Minor vulnerabilities detected."
+  },
+  {
+    "id": "3",
+    "ipAddress": "192.168.1.15",
+    "deviceName": "Server-01",
+    "status": "Offline",
+    "lastSeen": "2024-08-07T09:55:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T09:00:00Z",
+    "endTime": "2024-08-07T09:55:00Z",
+    "resultsSummary": "Host unreachable."
+  },
+  {
+    "id": "4",
+    "ipAddress": "192.168.1.20",
+    "deviceName": "Laptop-User",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:05:00Z",
+    "scanType": "Quick",
+    "startTime": "2024-08-07T10:00:00Z",
+    "endTime": "2024-08-07T10:02:00Z",
+    "resultsSummary": "No issues found."
+  },
+  {
+    "id": "5",
+    "ipAddress": "192.168.1.25",
+    "deviceName": "Printer-HP",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:10:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T10:05:00Z",
+    "endTime": "2024-08-07T10:08:00Z",
+    "resultsSummary": "Open ports detected."
+  },
+  {
+    "id": "6",
+    "ipAddress": "192.168.1.30",
+    "deviceName": "NAS-Storage",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:15:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T10:10:00Z",
+    "endTime": "2024-08-07T10:14:00Z",
+    "resultsSummary": "Firmware update recommended."
+  },
+  {
+    "id": "7",
+    "ipAddress": "192.168.1.35",
+    "deviceName": "IoT-Device",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:20:00Z",
+    "scanType": "Quick",
+    "startTime": "2024-08-07T10:18:00Z",
+    "endTime": "2024-08-07T10:19:00Z",
+    "resultsSummary": "Weak password detected."
+  },
+  {
+    "id": "8",
+    "ipAddress": "192.168.1.40",
+    "deviceName": "Guest-PC",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:25:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T10:20:00Z",
+    "endTime": "2024-08-07T10:24:00Z",
+    "resultsSummary": "No issues found."
+  },
+  {
+    "id": "9",
+    "ipAddress": "192.168.1.45",
+    "deviceName": "Access-Point",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:30:00Z",
+    "scanType": "Quick",
+    "startTime": "2024-08-07T10:28:00Z",
+    "endTime": "2024-08-07T10:29:00Z",
+    "resultsSummary": "Outdated firmware."
+  },
+  {
+    "id": "10",
+    "ipAddress": "192.168.1.50",
+    "deviceName": "Firewall",
+    "status": "Online",
+    "lastSeen": "2024-08-07T10:35:00Z",
+    "scanType": "Full",
+    "startTime": "2024-08-07T10:30:00Z",
+    "endTime": "2024-08-07T10:34:00Z",
+    "resultsSummary": "Configuration review recommended."
+  }
+]

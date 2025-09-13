@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "reportName": "Monthly Security Summary",
+    "dateGenerated": "2024-08-01T08:00:00Z",
+    "status": "Completed",
+    "type": "PDF",
+    "summary": "Comprehensive overview of security events and posture for August."
+  },
+  {
+    "id": "2",
+    "reportName": "Weekly Vulnerability Scan",
+    "dateGenerated": "2024-08-07T09:00:00Z",
+    "status": "Pending",
+    "type": "CSV",
+    "summary": "Detailed list of vulnerabilities identified in the latest scan."
+  },
+  {
+    "id": "3",
+    "reportName": "Incident Response Report",
+    "dateGenerated": "2024-07-25T14:00:00Z",
+    "status": "Completed",
+    "type": "DOCX",
+    "summary": "Post-incident analysis and recommendations for the recent breach."
+  },
+  {
+    "id": "4",
+    "reportName": "Daily Threat Intelligence Brief",
+    "dateGenerated": "2024-08-07T10:00:00Z",
+    "status": "Completed",
+    "type": "PDF",
+    "summary": "Summary of new and emerging threats."
+  },
+  {
+    "id": "5",
+    "reportName": "Compliance Audit Report Q2",
+    "dateGenerated": "2024-07-01T11:00:00Z",
+    "status": "Completed",
+    "type": "XLSX",
+    "summary": "Audit results for regulatory compliance in Q2."
+  },
+  {
+    "id": "6",
+    "reportName": "Network Activity Log",
+    "dateGenerated": "2024-08-07T12:00:00Z",
+    "status": "Generating",
+    "type": "TXT",
+    "summary": "Raw network traffic logs for analysis."
+  },
+  {
+    "id": "7",
+    "reportName": "User Access Review",
+    "dateGenerated": "2024-08-05T13:00:00Z",
+    "status": "Completed",
+    "type": "PDF",
+    "summary": "Review of user permissions and access rights."
+  },
+  {
+    "id": "8",
+    "reportName": "Malware Analysis Report",
+    "dateGenerated": "2024-08-06T14:00:00Z",
+    "status": "Completed",
+    "type": "PDF",
+    "summary": "Detailed analysis of a recent malware sample."
+  },
+  {
+    "id": "9",
+    "reportName": "System Health Check",
+    "dateGenerated": "2024-08-07T15:00:00Z",
+    "status": "Completed",
+    "type": "HTML",
+    "summary": "Overview of system performance and health metrics."
+  },
+  {
+    "id": "10",
+    "reportName": "Configuration Drift Report",
+    "dateGenerated": "2024-08-07T16:00:00Z",
+    "status": "Failed",
+    "type": "JSON",
+    "summary": "Report on deviations from baseline configurations."
+  }
+]

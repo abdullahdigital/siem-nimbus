@@ -1,3 +1,208 @@
+:root {
+  --primary-color: #007bff; /* A vibrant blue for primary actions and highlights */
+  --secondary-color: #6c757d; /* A muted grey for secondary elements */
+  --accent-color: #28a745; /* A green for success states */
+  --background-color: #f8f9fa; /* Light grey background for the entire app */
+  --card-background: #ffffff; /* White background for cards and containers */
+  --text-color: #343a40; /* Dark grey for main text */
+  --light-text-color: #6c757d; /* Lighter grey for secondary text */
+  --border-color: #dee2e6; /* Light grey for borders */
+  --shadow-color: rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  --header-background: #ffffff; /* White background for headers */
+  --sidebar-background: #343a40; /* Dark background for sidebar */
+  --sidebar-text-color: #f8f9fa; /* Light text for sidebar */
+  --sidebar-hover-background: #495057; /* Slightly lighter dark for sidebar hover */
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: all 0.3s ease;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* General card styling */
+.card {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade of primary color */
+  transform: translateY(-1px);
+}
+
+/* Utility classes for text */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-success {
+  color: var(--accent-color);
+}
+
+.text-danger {
+  color: #dc3545; /* Bootstrap danger red */
+}
+
+.text-warning {
+  color: #ffc107; /* Bootstrap warning yellow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar on small screens */
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .search-input {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+/* Additional global styles for a cleaner look */
+html, body, #root, .app-container {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  display: flex;
+}
+
+.page-title {
+  font-size: 2.5em;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8em;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+/* Form controls */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--card-background);
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
 .App {
   text-align: center;
 }

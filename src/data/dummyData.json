@@ -1,28 +1,48 @@
 {
     "malwareDetector": {
       "title": "Malware Detector",
-      "threatsDetected": 5,
-      "lastScan": "2 hours ago"
+      "threatsDetected": 10,
+      "lastScan": "1 hour ago"
     },
     "networkScanner": {
       "title": "Network Scanner",
-      "devicesConnected": 12,
-      "activeScans": 3
+      "devicesConnected": 25,
+      "activeScans": 5
     },
     "vulnerabilityChecker": {
       "title": "Vulnerability Checker",
-      "vulnerabilitiesFound": 8,
-      "lastScan": "1 day ago"
+      "vulnerabilitiesFound": 15,
+      "lastScan": "12 hours ago"
     },
     "alerts": {
       "title": "Alerts",
-      "newAlerts": 3,
-      "lastAlert": "30 minutes ago"
+      "newAlerts": 7,
+      "lastAlert": "15 minutes ago"
     },
     "dataCollector": {
       "title": "Data Collector",
-      "dataCollected": "25 GB",
-      "lastCollection": "4 hours ago"
+      "dataCollected": "50 GB",
+      "lastCollection": "2 hours ago"
+    },
+    "logs": {
+      "title": "Logs",
+      "newLogs": 120,
+      "lastLog": "5 minutes ago"
+    },
+    "reports": {
+      "title": "Reports",
+      "generatedReports": 30,
+      "lastReport": "1 day ago"
+    },
+    "userManagement": {
+      "title": "User Management",
+      "activeUsers": 50,
+      "newUsersToday": 3
+    },
+    "profile": {
+      "title": "Profile",
+      "lastLogin": "Just now",
+      "status": "Online"
     }
   }
   

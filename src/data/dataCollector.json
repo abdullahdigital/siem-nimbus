@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "dataType": "Network Traffic",
+    "volume": "10 GB",
+    "collectionDate": "2024-08-07T12:00:00Z",
+    "status": "Completed"
+  },
+  {
+    "id": "2",
+    "dataType": "System Logs",
+    "volume": "2 GB",
+    "collectionDate": "2024-08-07T11:00:00Z",
+    "status": "In Progress"
+  },
+  {
+    "id": "3",
+    "dataType": "User Activity",
+    "volume": "500 MB",
+    "collectionDate": "2024-08-07T10:00:00Z",
+    "status": "Failed"
+  },
+  {
+    "id": "4",
+    "dataType": "Endpoint Security",
+    "volume": "7 GB",
+    "collectionDate": "2024-08-07T09:00:00Z",
+    "status": "Completed"
+  },
+  {
+    "id": "5",
+    "dataType": "Cloud Access Logs",
+    "volume": "3 GB",
+    "collectionDate": "2024-08-07T08:00:00Z",
+    "status": "In Progress"
+  },
+  {
+    "id": "6",
+    "dataType": "Database Audit Trails",
+    "volume": "1 GB",
+    "collectionDate": "2024-08-07T07:00:00Z",
+    "status": "Completed"
+  },
+  {
+    "id": "7",
+    "dataType": "Firewall Logs",
+    "volume": "4 GB",
+    "collectionDate": "2024-08-07T06:00:00Z",
+    "status": "Failed"
+  },
+  {
+    "id": "8",
+    "dataType": "DNS Queries",
+    "volume": "200 MB",
+    "collectionDate": "2024-08-07T05:00:00Z",
+    "status": "Completed"
+  },
+  {
+    "id": "9",
+    "dataType": "VPN Connection Logs",
+    "volume": "500 MB",
+    "collectionDate": "2024-08-07T04:00:00Z",
+    "status": "In Progress"
+  },
+  {
+    "id": "10",
+    "dataType": "Web Server Logs",
+    "volume": "6 GB",
+    "collectionDate": "2024-08-07T03:00:00Z",
+    "status": "Completed"
+  }
+]

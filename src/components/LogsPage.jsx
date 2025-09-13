@@ -1,101 +1,72 @@
-import React, { useEffect, useState } from 'react';
-import Sidebar from './Sidebar'; // Ensure the path is correct
+import React, { useState, useEffect } from 'react';
+import logsData from '../data/logs.json';
 import '../styles/LogsPage.css';
 
 const LogsPage = () => {
-  const [logs, setLogs] = useState([]);
-  const [filteredLogs, setFilteredLogs] = useState([]);
+  const [logs, setLogs] = useState(logsData);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterType, setFilterType] = useState('All');
+  const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLogs = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/logs'); // URL for JSON Server
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setLogs(result);
-        setFilteredLogs(result);
-      } catch (error) {
-        console.error('Error fetching logs:', error);
-      }
-    };
+    // const fetchLogs = async () => {
+    //   try {
+    //     // Replace with your actual API endpoint
+    //     const response = await fetch('https://api.example.com/logs');
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
+    //     const data = await response.json();
+    //     setLogs(data);
+    //   } catch (e) {
+    //     setError('Failed to fetch logs: ' + e.message);
+    //     // Fallback to local data if API fails
+    //     setLogs(logsData);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
 
-    fetchLogs();
+    // fetchLogs();
   }, []);
 
-  useEffect(() => {
-    let updatedLogs = logs.filter(log =>
-      log.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.details.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-    if (filterType !== 'All') {
-      updatedLogs = updatedLogs.filter(log => log.type === filterType);
-    }
+  const filteredLogs = logs.filter(log =>
+    Object.values(log).some(value =>
+      String(value).toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
-    setFilteredLogs(updatedLogs);
-  }, [searchTerm, filterType, logs]);
+  if (loading) {
+    return <div className="logs-page">Loading logs...</div>;
+  }
 
-  const handleSearchChange = (e) => setSearchTerm(e.target.value);
-
-  const handleFilterChange = (e) => setFilterType(e.target.value);
+  // if (error) {
+  //   return <div className="logs-page" style={{ color: 'red' }}>Error: {error}</div>;
+  // }
 
   return (
-    <div className="dashboard">
-      <Sidebar /> {/* Ensure the Sidebar component is imported and rendered correctly */}
-      <div className="dashboard-content">
-        <div className="container mt-4">
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search logs..."
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
-            </div>
-            <div className="col-md-6">
-              <select
-                className="form-control"
-                value={filterType}
-                onChange={handleFilterChange}
-              >
-                <option value="All">All Types</option>
-                <option value="Error">Error</option>
-                <option value="Warning">Warning</option>
-                <option value="Info">Info</option>
-              </select>
-            </div>
+    <div className="logs-page">
+      <h2>System Logs</h2>
+      <input
+        type="text"
+        placeholder="Search logs..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="search-input"
+      />
+      <div className="logs-list">
+        {filteredLogs.map(log => (
+          <div key={log.id} className={`log-card ${log.level.toLowerCase()}`}>
+            <p><strong>Timestamp:</strong> {new Date(log.timestamp).toLocaleString()}</p>
+            <p><strong>Level:</strong> {log.level}</p>
+            <p><strong>Source:</strong> {log.source}</p>
+            <p>{log.message}</p>
           </div>
-          <div className="table-responsive">
-            <table className="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Timestamp</th>
-                  <th>Type</th>
-                  <th>Message</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredLogs.map(log => (
-                  <tr key={log.id}>
-                    <td>{log.id}</td>
-                    <td>{new Date(log.timestamp).toLocaleString()}</td>
-                    <td>{log.type}</td>
-                    <td>{log.message}</td>
-                    <td>{log.details}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

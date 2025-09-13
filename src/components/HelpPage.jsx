@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
 import '../styles/HelpPage.css';
 
 const HelpPage = () => {
@@ -39,85 +38,80 @@ const HelpPage = () => {
   };
 
   return (
-    <div className="dashboard d-flex">
-      <Sidebar />
-      <div className="dashboard-content container-fluid">
-        <div className="container mt-4">
-          <div className="header mb-4">
-            <h2 className="text-primary">Help & Support</h2>
-            <p className="text-muted">Find answers to common questions or contact our support team for assistance.</p>
-          </div>
+    <div className="help-page">
+      <div className="header mb-4">
+        <h2 className="text-primary">Help & Support</h2>
+        <p className="text-muted">Find answers to common questions or contact our support team for assistance.</p>
+      </div>
 
-          <div className="search-section mb-5">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Search FAQs..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-          </div>
+      <div className="search-section mb-5">
+        <input
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="Search FAQs..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
 
-          <div className="faq-section mb-5">
-            <h3 className="text-secondary">Frequently Asked Questions</h3>
-            <div className="accordion" id="faqAccordion">
-              {filteredFAQs.length > 0 ? (
-                filteredFAQs.map((faq, index) => (
-                  <div key={index} className="card mb-3">
-                    <div className="card-header p-2">
-                      <h5
-                        className="mb-0 faq-question"
-                        onClick={() => toggleFAQ(index)}
-                        data-toggle="collapse"
-                        data-target={`#collapse${index}`}
-                        aria-expanded={expandedFAQIndex === index}
-                        aria-controls={`collapse${index}`}
-                      >
-                        {faq.question}
-                      </h5>
-                    </div>
-                    <div
-                      id={`collapse${index}`}
-                      className={`collapse ${expandedFAQIndex === index ? 'show' : ''}`}
-                      data-parent="#faqAccordion"
-                    >
-                      <div className="card-body">
-                        <p className="faq-answer">{faq.answer}</p>
-                      </div>
-                    </div>
+      <div className="faq-section mb-5">
+        <h3 className="text-secondary">Frequently Asked Questions</h3>
+        <div className="accordion" id="faqAccordion">
+          {filteredFAQs.length > 0 ? (
+            filteredFAQs.map((faq, index) => (
+              <div key={index} className="card mb-3">
+                <div className="card-header p-2">
+                  <h5
+                    className="mb-0 faq-question"
+                    onClick={() => toggleFAQ(index)}
+                    data-toggle="collapse"
+                    data-target={`#collapse${index}`}
+                    aria-expanded={expandedFAQIndex === index}
+                    aria-controls={`collapse${index}`}
+                  >
+                    {faq.question}
+                  </h5>
+                </div>
+                <div
+                  id={`collapse${index}`}
+                  className={`collapse ${expandedFAQIndex === index ? 'show' : ''}`}
+                  data-parent="#faqAccordion"
+                >
+                  <div className="card-body">
+                    <p className="faq-answer">{faq.answer}</p>
                   </div>
-                ))
-              ) : (
-                <p className="text-muted">No FAQs match your search.</p>
-              )}
-            </div>
-          </div>
-
-          <div className="support-contact-section mb-5">
-            <h3 className="text-secondary">Contact Support</h3>
-            <p>If you need further assistance, please contact us:</p>
-            <p>Email: <strong>support@example.com</strong></p>
-            <p>Phone: <strong>+1 (800) 123-4567</strong></p>
-          </div>
-
-          <div className="documentation-section mb-5">
-            <h3 className="text-secondary">Documentation Links</h3>
-            <ul className="list-unstyled">
-              <li className="mb-2">
-                <i className="fas fa-file-alt mr-2"></i>
-                <strong>User Guide:</strong> Detailed instructions on how to use the system.
-              </li>
-              <li className="mb-2">
-                <i className="fas fa-tools mr-2"></i>
-                <strong>Troubleshooting:</strong> Common issues and their solutions.
-              </li>
-              <li className="mb-2">
-                <i className="fas fa-book mr-2"></i>
-                <strong>API Documentation:</strong> Information for developers integrating with our API.
-              </li>
-            </ul>
-          </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-muted">No FAQs match your search.</p>
+          )}
         </div>
+      </div>
+
+      <div className="support-contact-section mb-5">
+        <h3 className="text-secondary">Contact Support</h3>
+        <p>If you need further assistance, please contact us:</p>
+        <p>Email: <strong>support@example.com</strong></p>
+        <p>Phone: <strong>+1 (800) 123-4567</strong></p>
+      </div>
+
+      <div className="documentation-section mb-5">
+        <h3 className="text-secondary">Documentation Links</h3>
+        <ul className="list-unstyled">
+          <li className="mb-2">
+            <i className="fas fa-file-alt mr-2"></i>
+            <strong>User Guide:</strong> Detailed instructions on how to use the system.
+          </li>
+          <li className="mb-2">
+            <i className="fas fa-tools mr-2"></i>
+            <strong>Troubleshooting:</strong> Common issues and their solutions.
+          </li>
+          <li className="mb-2">
+            <i className="fas fa-book mr-2"></i>
+            <strong>API Documentation:</strong> Information for developers integrating with our API.
+          </li>
+        </ul>
       </div>
     </div>
   );

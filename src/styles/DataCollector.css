@@ -1,0 +1,116 @@
+.data-collector-page {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.data-source-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.data-source-card {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid var(--border-color);
+}
+
+.data-source-card:hover {
+  transform: translateY(-5px);
+}
+
+.data-source-card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.data-source-card p {
+  margin-bottom: 5px;
+  color: var(--light-text-color);
+  font-size: 0.9em;
+}
+
+.data-source-card p strong {
+  color: var(--text-color);
+}
+
+.completed {
+  color: #2ecc71; /* A more modern green */
+  font-weight: bold;
+}
+
+.in-progress {
+  color: #f39c12; /* A more modern orange */
+  font-weight: bold;
+}
+
+.failed {
+  color: #e74c3c; /* A more modern red */
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .data-source-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.page-header h2 {
+  font-size: 2em;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  text-align: center;
+  min-width: 180px;
+}
+
+.summary-card h3 {
+  font-size: 1em;
+  color: var(--light-text-color);
+  margin-bottom: 5px;
+}
+
+.summary-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0;
+}

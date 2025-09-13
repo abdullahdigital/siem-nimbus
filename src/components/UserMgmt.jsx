@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Sidebar from './Sidebar';
+import React, { useState, useEffect } from 'react';
+import userMgmtData from '../data/userMgmt.json';
 import '../styles/UserMgmt.css';
 
 const UserMgmt = () => {
-  const [users, setUsers] = useState([
-    // Sample users
-    { id: 1, name: 'John Doe', role: 'Admin', email: 'john@example.com' },
-    { id: 2, name: 'Jane Smith', role: 'User', email: 'jane@example.com' },
-    { id: 3, name: 'Bob Johnson', role: 'Moderator', email: 'bob@example.com' }
-  ]);
+  const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
+
+  useEffect(() => {
+    setUsers(userMgmtData);
+  }, []);
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
@@ -25,85 +25,98 @@ const UserMgmt = () => {
     }
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredUsers = users.filter(user =>
+    Object.values(user).some(value =>
+      String(value).toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
   const handleAddUser = (e) => {
     e.preventDefault();
     const newUser = {
       id: users.length + 1,
-      name: e.target.name.value,
-      role: e.target.role.value,
+      username: e.target.username.value,
       email: e.target.email.value,
+      role: e.target.role.value,
+      lastLogin: new Date().toISOString(),
+      status: "Active"
     };
     setUsers([...users, newUser]);
     e.target.reset();
   };
 
   return (
-    <div className="dashboard">
-      <Sidebar />
-      <div className="dashboard-content">
-        <div className="container">
-          <div className="header">
-            <h2>User Management</h2>
-          </div>
+    <div className="user-management-page">
+      <h2>User Management</h2>
+      <input
+        type="text"
+        placeholder="Search users..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="search-input"
+      />
+      <div className="user-management-content">
+        <div className="user-list-section">
+          <h3>User List</h3>
+          <ul className="list-group">
+            {filteredUsers.map((user) => (
+              <li
+                key={user.id}
+                className={`list-group-item ${selectedUser?.id === user.id ? 'active' : ''}`}
+                onClick={() => handleUserClick(user)}
+              >
+                {user.username} - {user.role}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="user-list">
-                <h3>User List</h3>
-                <ul className="list-group">
-                  {users.map((user) => (
-                    <li
-                      key={user.id}
-                      className={`list-group-item ${selectedUser?.id === user.id ? 'active' : ''}`}
-                      onClick={() => handleUserClick(user)}
-                    >
-                      {user.name} - {user.role}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="user-details-section">
+          {selectedUser && (
+            <div className="user-details">
+              <h3>User Details</h3>
+              <p><strong>Username:</strong> {selectedUser.username}</p>
+              <p><strong>Email:</strong> {selectedUser.email}</p>
+              <p>
+                <strong>Role:</strong>
+                <select value={selectedUser.role} onChange={handleRoleChange}>
+                  <option value="Administrator">Administrator</option>
+                  <option value="User">User</option>
+                  <option value="Guest">Guest</option>
+                  <option value="Auditor">Auditor</option>
+                </select>
+              </p>
+              <p><strong>Last Login:</strong> {new Date(selectedUser.lastLogin).toLocaleString()}</p>
+              <p><strong>Status:</strong> {selectedUser.status}</p>
             </div>
+          )}
 
-            <div className="col-md-6">
-              {selectedUser && (
-                <div className="user-details">
-                  <h3>User Details</h3>
-                  <p><strong>Name:</strong> {selectedUser.name}</p>
-                  <p><strong>Email:</strong> {selectedUser.email}</p>
-                  <p>
-                    <strong>Role:</strong>
-                    <select value={selectedUser.role} onChange={handleRoleChange}>
-                      <option value="Admin">Admin</option>
-                      <option value="User">User</option>
-                      <option value="Moderator">Moderator</option>
-                    </select>
-                  </p>
-                </div>
-              )}
-
-              <div className="add-user">
-                <h3>Add User</h3>
-                <form onSubmit={handleAddUser}>
-                  <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" required />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" className="form-control" id="email" required />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="role">Role</label>
-                    <select className="form-control" id="role" required>
-                      <option value="User">User</option>
-                      <option value="Admin">Admin</option>
-                      <option value="Moderator">Moderator</option>
-                    </select>
-                  </div>
-                  <button type="submit" className="btn btn-primary">Add User</button>
-                </form>
+          <div className="add-user">
+            <h3>Add User</h3>
+            <form onSubmit={handleAddUser}>
+              <div className="form-group">
+                <label htmlFor="username">Username</label>
+                <input type="text" className="form-control" id="username" required />
               </div>
-            </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input type="email" className="form-control" id="email" required />
+              </div>
+              <div className="form-group">
+                <label htmlFor="role">Role</label>
+                <select className="form-control" id="role" required>
+                  <option value="User">User</option>
+                  <option value="Administrator">Administrator</option>
+                  <option value="Guest">Guest</option>
+                  <option value="Auditor">Auditor</option>
+                </select>
+              </div>
+              <button type="submit" className="btn btn-primary">Add User</button>
+            </form>
           </div>
         </div>
       </div>

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "type": "Malware Detected",
+    "severity": "High",
+    "timestamp": "2024-08-07T10:00:00Z",
+    "source": "192.168.1.10",
+    "description": "WannaCry ransomware detected on host machine."
+  },
+  {
+    "id": "2",
+    "type": "Unauthorized Access Attempt",
+    "severity": "Medium",
+    "timestamp": "2024-08-07T10:05:00Z",
+    "source": "10.0.0.5",
+    "description": "Failed login attempts from unknown IP address."
+  },
+  {
+    "id": "3",
+    "type": "Port Scan Detected",
+    "severity": "Low",
+    "timestamp": "2024-08-07T10:10:00Z",
+    "source": "203.0.113.45",
+    "description": "Unusual port scanning activity detected on network interface."
+  },
+  {
+    "id": "4",
+    "type": "DDoS Attack",
+    "severity": "High",
+    "timestamp": "2024-08-07T10:15:00Z",
+    "source": "172.16.0.1",
+    "description": "Distributed Denial of Service attack in progress."
+  },
+  {
+    "id": "5",
+    "type": "SQL Injection Attempt",
+    "severity": "Critical",
+    "timestamp": "2024-08-07T10:20:00Z",
+    "source": "198.51.100.20",
+    "description": "Attempted SQL injection on user authentication endpoint."
+  },
+  {
+    "id": "6",
+    "type": "Phishing Email Detected",
+    "severity": "Medium",
+    "timestamp": "2024-08-07T10:25:00Z",
+    "source": "mail.example.com",
+    "description": "Suspicious email containing malicious link detected."
+  },
+  {
+    "id": "7",
+    "type": "Brute Force Attack",
+    "severity": "High",
+    "timestamp": "2024-08-07T10:30:00Z",
+    "source": "203.0.113.100",
+    "description": "Repeated failed login attempts on SSH service."
+  },
+  {
+    "id": "8",
+    "type": "Malware Detected",
+    "severity": "High",
+    "timestamp": "2024-08-07T10:35:00Z",
+    "source": "192.168.1.15",
+    "description": "Trojan detected in downloaded file."
+  },
+  {
+    "id": "9",
+    "type": "Unauthorized Access Attempt",
+    "severity": "Medium",
+    "timestamp": "2024-08-07T10:40:00Z",
+    "source": "10.0.0.10",
+    "description": "Unusual activity from a privileged account."
+  },
+  {
+    "id": "10",
+    "type": "Port Scan Detected",
+    "severity": "Low",
+    "timestamp": "2024-08-07T10:45:00Z",
+    "source": "203.0.113.50",
+    "description": "Nmap scan detected on internal network."
+  }
+]

@@ -1,17 +1,13 @@
 /* Sidebar styles */
 .sidebar {
   width: 250px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
   background-color: #f4f4f4;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  height: 100vh; /* Ensure it spans the full height of the viewport */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Evenly space items */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
 }
 .logo {
   width: 80px;
@@ -54,13 +50,18 @@
 
 /* Ensure content area does not overlap with sidebar */
 .dashboard-content {
-  margin-left: 250px; /* Adjust based on sidebar width */
   padding: 20px;
-  width: calc(100% - 250px); /* Take full width minus sidebar width */
+  flex-grow: 1; /* Allow main content to take up remaining space */
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+}
+
+.sidebar-scroll-container {
+  height: calc(100% - 60px); /* Adjust based on your header/logo height */
+  overflow-y: auto;
+  padding-right: 10px; /* Add some padding for the scrollbar */
 }

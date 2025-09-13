@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "username": "admin",
+  "email": "admin@example.com",
+  "role": "Administrator",
+  "lastLogin": "2024-08-07T11:45:00Z",
+  "memberSince": "2023-01-15T09:00:00Z",
+  "status": "Online"
+}
