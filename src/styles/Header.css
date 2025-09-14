@@ -38,3 +38,30 @@
     background: #0056b3;
   }
   
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px;
+  }
+
+  .header-title h1 {
+    font-size: 22px;
+    margin-bottom: 10px; /* Add space between title and greeting */
+  }
+
+  .user-greeting {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .user-greeting-text {
+    font-size: 14px;
+  }
+}
+  

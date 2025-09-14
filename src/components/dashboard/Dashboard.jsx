@@ -191,20 +191,20 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="row mt-5">
+        <div className="row mt-5 e">
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
-              <div className="card-body">
+              <div className="card-body chart-container">
                 <h5 className="card-title text-center text-primary">Security Metrics</h5>
                 <Bar
                   data={barChartData}
                   options={{
                     maintainAspectRatio: false,
                     responsive: true,
-                    plugins: { legend: { position: 'top' } },
+                    plugins: { legend: { position: 'top', labels: { color: 'white' } } },
                     scales: {
-                      x: { grid: { display: false } },
-                      y: { grid: { color: '#ddd' } },
+                      x: { grid: { display: false }, ticks: { color: 'white' } },
+                      y: { grid: { color: '#ddd' }, ticks: { color: 'white' } },
                     },
                   }}
                 />
@@ -214,14 +214,14 @@ const Dashboard = () => {
 
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
-              <div className="card-body">
+              <div className="card-body chart-container">
                 <h5 className="card-title text-center text-primary">System Health</h5>
                 <Doughnut
                   data={doughnutChartData}
                   options={{
                     maintainAspectRatio: false,
                     responsive: true,
-                    plugins: { legend: { position: 'top' } },
+                    plugins: { legend: { position: 'top', labels: { color: 'white' } } },
                     cutoutPercentage: 70,
                   }}
                 />

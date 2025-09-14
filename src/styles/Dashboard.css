@@ -28,13 +28,20 @@
 
 .metric-card {
   display: flex;
+  flex-direction: column; /* Stack content vertically on smaller screens */
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Center align items */
   padding: 20px;
   background-color: var(--card-background);
   border-radius: 8px;
   box-shadow: 0 4px 8px var(--shadow-color);
   color: var(--text-color); /* Ensure text color is set for the card */
+  overflow: hidden; /* Hide overflowing content */
+  text-align: center; /* Center align text within the card */
+}
+
+.metric-card .card-content {
+  width: 100%; /* Ensure content takes full width */
 }
 
 .metric-card .card-content .metric-title {
@@ -66,11 +73,11 @@
 }
 
 .card-body .card-title {
-  color: var(--text-color);
+  color: white;
 }
 
 .card-body .card-text {
-  color: var(--text-color);
+  color: white;
 }
 
 .metric-title {
@@ -88,6 +95,7 @@
 .metric-change {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 0.85em;
 }
 
@@ -111,6 +119,7 @@
 .metric-status {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 0.85em;
 }
 
@@ -167,11 +176,14 @@
   margin-left: 10px;
 }
 
+/* REMOVE THIS BLOCK */
+/*
 .dashboard-content {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
 }
+*/
 
 .metrics-overview {
   display: flex;
@@ -238,5 +250,127 @@
 }
 
 .card-body {
-  height: 250px;
+  height: auto; /* Allow card body to adjust height automatically */
+}
+
+.chart-container {
+  position: relative;
+  height: auto; /* Allow chart container to adjust height automatically */
+  min-height: 180px; /* Ensure a minimum height for charts on desktop */
+  max-height: 300px; /* Set a maximum height for charts on desktop */
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 10px; /* Reduce padding further for smaller screens */
+  }
+
+  .metric-cards {
+    grid-template-columns: 1fr; /* Ensure single column layout */
+    gap: 10px; /* Reduce gap */
+  }
+
+  .metric-card {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+    padding: 15px; /* Adjust padding */
+    overflow: visible; /* Allow content to be visible */
+  }
+
+  .metric-card .card-content {
+    flex-grow: 1; /* Allow content to grow */
+  }
+
+  .charts-and-graphs,
+  .system-status {
+    padding: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  }
+
+  .row.mt-5 {
+    display: flex;
+    align-items: stretch; /* Ensure equal height for cards in the row */
+    margin-top: 15px; /* Adjust margin */
+  }
+
+  .row.mt-5 > .col-md-6 {
+    width: 100%; /* Full width for chart cards */
+    margin-bottom: 15px; /* Add margin between stacked cards */
+  }
+
+  .row.mt-5 .card {
+    height: 100%; /* Make cards take full height of their column */
+  }
+
+  .row.mt-5 .card-body {
+    height: 100%; /* Make card body take full height of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space within the card body */
+  }
+
+  .recent-alerts-table,
+  .top-threats-table {
+    font-size: 12px; /* Further reduce font size for tables */
+    overflow-x: auto; /* Allow horizontal scroll for tables if content overflows */
+    display: block; /* Ensure block display for overflow to work */
+    white-space: nowrap; /* Prevent text wrapping in table cells */
+  }
+
+  .recent-alerts-table th,
+  .top-threats-table th,
+  .recent-alerts-table td,
+  .top-threats-table td {
+    padding: 5px; /* Further reduce table cell padding */
+  }
+
+  .chart-container {
+    height: auto; /* Allow chart container to adjust height automatically */
+    min-height: 120px; /* Adjust minimum height for smaller screens */
+    max-height: 180px; /* Set a maximum height for charts on mobile */
+  }
+
+  .card-body {
+    height: auto; /* Allow card body to adjust height automatically */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 20px;
+  }
+
+  .metric-card .metric-title {
+    font-size: 0.7em;
+  }
+
+  .metric-card .metric-value {
+    font-size: 1.5em;
+  }
+
+  .metric-card .metric-change,
+  .metric-card .metric-critical,
+  .metric-card .metric-status {
+    font-size: 0.65em;
+  }
+
+  .dashboard-section h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metric-card h3 {
+    font-size: 16px;
+  }
+
+  .metric-card p {
+    font-size: 20px;
+  }
+
+  .dashboard-section h2 {
+    font-size: 20px;
+  }
 }

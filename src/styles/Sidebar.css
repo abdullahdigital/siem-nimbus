@@ -109,3 +109,46 @@
   background-color: var(--primary-color);
   color: #ffffff;
 }
+
+/* Mobile Navigation */
+.mobile-navbar-toggle {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001; /* Ensure it's above other content */
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide sidebar off-screen */
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--sidebar-background); /* Ensure background color is set */
+  }
+
+  .sidebar.open {
+    left: 0; /* Show sidebar */
+  }
+
+  .mobile-navbar-toggle {
+    display: flex; /* Show toggle button on mobile */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-scroll-container {
+    padding-top: 70px; /* Make space for the toggle button */
+  }
+}

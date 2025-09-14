@@ -294,17 +294,66 @@
 }
 
 @media (max-width: 768px) {
-  .network-scan-cards {
-    grid-template-columns: 1fr;
+  .network-scanner-dashboard {
+    padding: 15px;
   }
-  
+
+  .dashboard-header {
+    flex-direction: column; /* Stack header items vertically */
+    gap: 15px;
+  }
+
+  .search-bar-container {
+    width: 100%;
+  }
+
   .filter-sort-controls {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Stack filter and sort controls vertically */
+    width: 100%;
+    gap: 10px;
   }
-  
+
+  .filter-buttons {
+    flex-wrap: wrap; /* Allow filter buttons to wrap */
+    justify-content: center;
+  }
+
+  .filter-chip {
+    margin: 5px;
+  }
+
   .sort-dropdown-container {
     width: 100%;
-    max-width: none;
+  }
+
+  .network-scan-cards {
+    grid-template-columns: 1fr; /* Single column for scan cards */
+  }
+
+  .scan-card {
+    padding: 15px;
+  }
+
+  .card-header {
+    flex-direction: column; /* Stack card header items vertically */
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h2 {
+    font-size: 22px;
+  }
+
+  .scan-card h3 {
+    font-size: 18px;
+  }
+
+  .scan-card p {
+    font-size: 14px;
   }
 }

@@ -125,12 +125,13 @@ button:hover {
   }
 
   .sidebar {
-    display: none; /* Hide sidebar on small screens */
+    /* Mobile sidebar styles are handled in Sidebar.css */
   }
 
   .main-content {
     width: 100%;
     padding: 15px;
+    margin-left: 0; /* Remove margin when sidebar is hidden */
   }
 
   .search-input {
@@ -139,6 +140,20 @@ button:hover {
 
   .card {
     padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .user-greeting-text {
+    font-size: 14px;
+  }
+
+  .card {
+    margin-bottom: 10px;
   }
 }
 
@@ -242,4 +257,23 @@ html, body, #root, .app-container {
   to {
     transform: rotate(360deg);
   }
+}
+
+.instagram-icon-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  color: #E1306C; /* Instagram brand color */
+  transition: transform 0.3s ease-in-out;
+}
+
+.instagram-icon-link:hover {
+  transform: scale(1.1);
+}
+
+.instagram-icon {
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
 }

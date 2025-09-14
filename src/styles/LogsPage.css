@@ -61,22 +61,35 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .logs-list {
-    grid-template-columns: 1fr;
-  }
-
   .logs-page {
     padding: 15px;
   }
-}
 
-@media (max-width: 480px) {
+  .search-input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .logs-list {
+    grid-template-columns: 1fr; /* Single column for logs list */
+  }
+
   .log-card {
     padding: 15px;
   }
 
-  .log-card h3 {
-    font-size: 1.1em;
+  .log-card p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logs-page h2 {
+    font-size: 22px;
+  }
+
+  .log-card strong {
+    font-size: 14px;
   }
 }
 .navbar {

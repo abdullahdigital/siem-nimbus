@@ -68,8 +68,53 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .data-collector-page {
+    padding: 15px;
+  }
+
+  .summary-cards {
+    flex-direction: column; /* Stack summary cards vertically */
+    gap: 10px;
+  }
+
+  .summary-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
   .data-source-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column for data source list */
+  }
+
+  .data-source-card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h2 {
+    font-size: 22px;
+  }
+
+  .summary-card h3 {
+    font-size: 16px;
+  }
+
+  .summary-card p {
+    font-size: 20px;
+  }
+
+  .data-source-card h3 {
+    font-size: 18px;
+  }
+
+  .data-source-card p {
+    font-size: 14px;
   }
 }
 

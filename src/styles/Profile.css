@@ -119,3 +119,51 @@
     color: var(--text-color-secondary);
   }
   
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column; /* Stack profile picture and details vertically */
+    align-items: center;
+  }
+
+  .profile-picture {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .profile-details {
+    text-align: center;
+  }
+
+  .profile-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .password-section .form-group {
+    flex-direction: column; /* Stack form group items vertically */
+    align-items: flex-start;
+  }
+
+  .password-section label {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 22px;
+  }
+
+  .profile-details h3,
+  .password-section h3,
+  .notifications-section h3 {
+    font-size: 18px;
+  }
+
+  .profile-details p,
+  .password-section label,
+  .form-check-label {
+    font-size: 14px;
+  }
+}
+  

@@ -89,27 +89,44 @@ body, .dashboard-content {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .header h2 {
-      font-size: 2rem;
-  }
-
-  .search-section {
-      max-width: 100%;
-      padding: 0 15px;
+  .help-page {
+    padding: 15px;
   }
 
   .search-section input {
-      font-size: 1rem;
-      padding: 12px;
+    width: 100%;
+  }
+
+  .faq-section .card {
+    margin-bottom: 10px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+
+  .support-contact-section p,
+  .documentation-section li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 22px;
+  }
+
+  .header p {
+    font-size: 14px;
   }
 
   .faq-section h3,
   .support-contact-section h3,
   .documentation-section h3 {
-      font-size: 1.5rem;
-  }
-
-  .faq-section .card-header h5 {
-      font-size: 1rem;
+    font-size: 18px;
   }
 }

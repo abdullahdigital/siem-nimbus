@@ -16,6 +16,7 @@ import DataCollector from './components/DataCollector';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import './App.css';
+import { Instagram } from 'lucide-react';
 
 function App() {
   return (
@@ -39,6 +40,14 @@ function App() {
             <Route path="/data-collector" element={<DataCollector />} />
           </Routes>
         </div>
+        <a
+          href="https://www.instagram.com/abdullahwebmaster"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="instagram-icon-link"
+        >
+          <Instagram size={32} className="instagram-icon" />
+        </a>
       </div>
     </Router>
   );
