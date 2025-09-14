@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import '../../styles/Dashboard.css';
 import { Chart, ArcElement, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import { Bell, ShieldOff, AlertTriangle, HeartPulse } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Import data sources
 import malwareData from '../../data/malwareDetector.json';
@@ -30,20 +32,20 @@ const Dashboard = () => {
     const latestMalwareScan = malwareData.length > 0 ? new Date(Math.max(...malwareData.map(item => new Date(item.lastScan)))) : new Date();
 
     // Process network scanner data
-    const connectedDevices = networkData.filter(item => item.status === 'Connected').length;
-    const activeNetworkScans = networkData.filter(item => item.status === 'Scanning').length;
+    const connectedDevices = networkData.length;
+    const activeNetworkScans = networkData.filter(item => item.status === 'Online').length;
 
     // Process vulnerability checker data
-    const criticalVulnerabilities = vulnerabilityData.filter(item => item.severity === 'Critical').length;
+    const totalVulnerabilities = vulnerabilityData.length;
     const latestVulnerabilityScan = vulnerabilityData.length > 0 ? new Date(Math.max(...vulnerabilityData.map(item => new Date(item.lastScan)))) : new Date();
 
     // Process alerts data
-    const newAlertsCount = alertsData.filter(item => item.status === 'New').length;
+    const newAlertsCount = alertsData.length;
     const latestAlert = alertsData.length > 0 ? new Date(Math.max(...alertsData.map(item => new Date(item.timestamp)))) : new Date();
 
     // Process data collector data
     const totalDataCollected = dataCollectorData.reduce((sum, item) => {
-      const volumeValue = parseFloat(item.volume);
+      const volumeValue = parseFloat(item.volume.replace(' GB', ''));
       return sum + (isNaN(volumeValue) ? 0 : volumeValue);
     }, 0);
     const latestDataCollection = dataCollectorData.length > 0 ? new Date(Math.max(...dataCollectorData.map(item => new Date(item.collectionDate)))) : new Date();
@@ -55,7 +57,7 @@ const Dashboard = () => {
     setData({
       malwareDetector: { threatsDetected: highThreats, lastScan: latestMalwareScan.toLocaleDateString() },
       networkScanner: { devicesConnected: connectedDevices, activeScans: activeNetworkScans },
-      vulnerabilityChecker: { vulnerabilitiesFound: criticalVulnerabilities, lastScan: latestVulnerabilityScan.toLocaleDateString() },
+      vulnerabilityChecker: { vulnerabilitiesFound: totalVulnerabilities, lastScan: latestVulnerabilityScan.toLocaleDateString() },
       alerts: { newAlerts: newAlertsCount, lastAlert: latestAlert.toLocaleDateString() },
       dataCollector: { dataCollected: totalDataCollected, lastCollection: latestDataCollection.toLocaleDateString() },
       logs: { logsCollected: totalLogsCollected, lastCollection: latestLogCollection.toLocaleDateString() }
@@ -106,40 +108,87 @@ const Dashboard = () => {
     ],
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div className="dashboard-content">
-      <div className="content mt-4">
-        <div className="row">
-          {renderBox(
-            'Malware Detector',
-            `${data.malwareDetector.threatsDetected} Threats Detected\nLast Scan: ${data.malwareDetector.lastScan}`,
-            '/malware-detector'
-          )}
-          {renderBox(
-            'Network Scanner',
-            `${data.networkScanner.devicesConnected} Devices Connected\nActive Scans: ${data.networkScanner.activeScans}`,
-            '/network-scanner'
-          )}
-          {renderBox(
-            'Vulnerability Checker',
-            `${data.vulnerabilityChecker.vulnerabilitiesFound} Vulnerabilities Found\nLast Scan: ${data.vulnerabilityChecker.lastScan}`,
-            '/vulnerability-checker'
-          )}
-          {renderBox(
-            'Alerts',
-            `${data.alerts.newAlerts} New Alerts\nLast Alert: ${data.alerts.lastAlert}`,
-            '/alerts'
-          )}
-          {renderBox(
-            'Data Collector',
-            `${data.dataCollector.dataCollected} GB Collected\nLast Collection: ${data.dataCollector.lastCollection}`,
-            '/data-collector'
-          )}
-          {renderBox(
-            'Logs',
-            `${data.logs.logsCollected} Logs Collected\nLast Collection: ${data.logs.lastCollection}`,
-            '/logs'
-          )}
+    <div className="dashboard-container">
+      <div className="dashboard-content">
+        <div className="metric-cards">
+          <div className="card metric-card" onClick={() => navigate('/alerts')}>
+            <div className="card-content">
+              <div className="metric-title">Total Alerts</div>
+              <div className="metric-value">{data.alerts.newAlerts}</div>
+              <div className="metric-change positive">
+                {/* <span className="arrow">↑</span> 12% from last week */}
+              </div>
+            </div>
+            <div className="metric-icon-container blue">
+              <Bell size={24} className="metric-icon" />
+            </div>
+          </div>
+
+          <div className="card metric-card" onClick={() => navigate('/network-scanner')}>
+            <div className="card-content">
+              <div className="metric-title">Network Scanner</div>
+              <div className="metric-value">{data.networkScanner.devicesConnected} Devices</div>
+              <div className="metric-change positive">
+                <span className="arrow"></span> {data.networkScanner.activeScans} Active Scans
+              </div>
+            </div>
+            <div className="metric-icon-container blue">
+              <Bell size={24} className="metric-icon" />
+            </div>
+          </div>
+
+          <div className="card metric-card" onClick={() => navigate('/vulnerability-checker')}>
+            <div className="card-content">
+              <div className="metric-title">Vulnerabilities</div>
+              <div className="metric-value">{data.vulnerabilityChecker.vulnerabilitiesFound}</div>
+              <div className="metric-critical">▲ {data.vulnerabilityChecker.vulnerabilitiesFound} critical</div>
+            </div>
+            <div className="metric-icon-container yellow">
+              <AlertTriangle size={24} className="metric-icon" />
+            </div>
+          </div>
+
+          <div className="card metric-card" onClick={() => navigate('/malware-detector')}>
+            <div className="card-content">
+              <div className="metric-title">Malware Detected</div>
+              <div className="metric-value">{data.malwareDetector.threatsDetected}</div>
+              <div className="metric-status negative">
+                <span className="check">Last Scan: {data.malwareDetector.lastScan}</span>
+              </div>
+            </div>
+            <div className="metric-icon-container red">
+              <ShieldOff size={24} className="metric-icon" />
+            </div>
+          </div>
+
+          <div className="card metric-card" onClick={() => navigate('/data-collector')}>
+            <div className="card-content">
+              <div className="metric-title">Data Collected</div>
+              <div className="metric-value">{data.dataCollector.dataCollected} GB</div>
+              <div className="metric-status positive">
+                <span className="check">Last: {data.dataCollector.lastCollection}</span>
+              </div>
+            </div>
+            <div className="metric-icon-container blue">
+              <Bell size={24} className="metric-icon" />
+            </div>
+          </div>
+
+          <div className="card metric-card" onClick={() => navigate('/logs')}>
+            <div className="card-content">
+              <div className="metric-title">Logs Collected</div>
+              <div className="metric-value">{data.logs.logsCollected}</div>
+              <div className="metric-status positive">
+                <span className="check">Last: {data.logs.lastCollection}</span>
+              </div>
+            </div>
+            <div className="metric-icon-container green">
+              <HeartPulse size={24} className="metric-icon" />
+            </div>
+          </div>
         </div>
 
         <div className="row mt-5">

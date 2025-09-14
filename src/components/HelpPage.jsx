@@ -22,7 +22,6 @@ const HelpPage = () => {
       question: 'How do I generate a report?',
       answer: 'To generate a report, navigate to the Reports section, select the report type, and click "Generate".',
     },
-    // Add more FAQs as needed
   ];
 
   const filteredFAQs = faqData.filter(faq =>
@@ -64,8 +63,6 @@ const HelpPage = () => {
                   <h5
                     className="mb-0 faq-question"
                     onClick={() => toggleFAQ(index)}
-                    data-toggle="collapse"
-                    data-target={`#collapse${index}`}
                     aria-expanded={expandedFAQIndex === index}
                     aria-controls={`collapse${index}`}
                   >
@@ -92,7 +89,7 @@ const HelpPage = () => {
       <div className="support-contact-section mb-5">
         <h3 className="text-secondary">Contact Support</h3>
         <p>If you need further assistance, please contact us:</p>
-        <p>Email: <strong>support@example.com</strong></p>
+        <p>Email: <strong>abdullahwebhero@gmail.com</strong></p>
         <p>Phone: <strong>+1 (800) 123-4567</strong></p>
       </div>
 

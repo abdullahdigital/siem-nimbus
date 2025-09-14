@@ -1,12 +1,158 @@
 .dashboard {
   padding: 20px;
-  background-color: #f0f2f5;
+  background-color: var(--background-color);
 }
 
-.dashboard-header {
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--background-color) !important;
+}
+
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  color: var(--text-color); /* Ensure text color is set for the card */
+}
+
+.metric-card .card-content .metric-title {
+  color: var(--light-text-color);
+}
+
+.metric-card .card-content .metric-value {
+  color: var(--text-color);
+}
+
+.metric-card .card-content .metric-change.positive {
+  color: var(--accent-color);
+}
+
+.metric-card .card-content .metric-change.negative {
+  color: var(--danger-color);
+}
+
+.metric-card .card-content .metric-critical {
+  color: var(--warning-color);
+}
+
+.metric-card .card-content .metric-status.positive {
+  color: var(--accent-color);
+}
+
+.metric-card .card-content .metric-status.negative {
+  color: var(--danger-color);
+}
+
+.card-body .card-title {
+  color: var(--text-color);
+}
+
+.card-body .card-text {
+  color: var(--text-color);
+}
+
+.metric-title {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin-bottom: 5px;
+}
+
+.metric-value {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.metric-change {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+}
+
+.metric-change.positive {
+  color: var(--accent-color);
+}
+
+.metric-change.negative {
+  color: var(--danger-color);
+}
+
+.metric-change .arrow {
+  margin-right: 5px;
+}
+
+.metric-critical {
+  font-size: 0.85em;
+  color: var(--warning-color);
+}
+
+.metric-status {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+}
+
+.metric-status.positive {
+  color: var(--accent-color);
+}
+
+.metric-status .check {
+  margin-right: 5px;
+}
+
+.metric-icon-container {
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-icon-container.blue {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: var(--primary-color);
+}
+
+.metric-icon-container.red {
+  background-color: rgba(229, 62, 62, 0.2);
+  color: var(--danger-color);
+}
+
+.metric-icon-container.yellow {
+  background-color: rgba(236, 201, 75, 0.2);
+  color: var(--warning-color);
+}
+
+.metric-icon-container.green {
+  background-color: rgba(72, 187, 120, 0.2);
+  color: var(--accent-color);
+}
+
+.metric-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .user-profile {
@@ -35,9 +181,9 @@
 .metric {
   flex: 1;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
   margin-right: 10px;
 }
 
@@ -52,21 +198,21 @@
 
 .recent-alerts li {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .charts-and-graphs {
   padding: 20px;
-  background-color: #ffffff;
+  background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .system-status {
   padding: 20px;
-  background-color: #ffffff;
+  background-color: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .dashboard .card {
@@ -83,8 +229,8 @@
 
 .dashboard .navbar {
   padding: 10px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--header-background);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .dashboard .container {

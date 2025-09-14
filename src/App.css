@@ -1,17 +1,19 @@
 :root {
-  --primary-color: #007bff; /* A vibrant blue for primary actions and highlights */
-  --secondary-color: #6c757d; /* A muted grey for secondary elements */
-  --accent-color: #28a745; /* A green for success states */
-  --background-color: #f8f9fa; /* Light grey background for the entire app */
-  --card-background: #ffffff; /* White background for cards and containers */
-  --text-color: #343a40; /* Dark grey for main text */
-  --light-text-color: #6c757d; /* Lighter grey for secondary text */
-  --border-color: #dee2e6; /* Light grey for borders */
-  --shadow-color: rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-  --header-background: #ffffff; /* White background for headers */
-  --sidebar-background: #343a40; /* Dark background for sidebar */
-  --sidebar-text-color: #f8f9fa; /* Light text for sidebar */
-  --sidebar-hover-background: #495057; /* Slightly lighter dark for sidebar hover */
+  --primary-color: #4299E1; /* Blue for primary actions and highlights */
+  --secondary-color: #A0AEC0; /* Muted grey for secondary elements */
+  --accent-color: #48BB78; /* Green for success states */
+  --background-color: #1A202C; /* Dark background for the entire app */
+  --card-background: #2D3748; /* Slightly lighter dark background for cards and containers */
+  --text-color: #E2E8F0; /* Light grey for main text */
+  --light-text-color: #A0AEC0; /* Lighter grey for secondary text */
+  --border-color: #4A5568; /* Darker grey for borders */
+  --shadow-color: rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+  --header-background: #2D3748; /* Dark background for headers */
+  --sidebar-background: #1A202C; /* Dark background for sidebar */
+  --sidebar-text-color: #E2E8F0; /* Light text for sidebar */
+  --sidebar-hover-background: #4A5568; /* Slightly lighter dark for sidebar hover */
+  --danger-color: #E53E3E; /* Red for danger/alerts */
+  --warning-color: #ECC94B; /* Yellow for warnings */
 }
 
 body {

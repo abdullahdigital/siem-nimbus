@@ -1,67 +1,111 @@
 /* Sidebar styles */
 .sidebar {
   width: 250px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-text-color);
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Evenly space items */
-  flex-shrink: 0; /* Prevent sidebar from shrinking */
-}
-.logo {
-  width: 80px;
-  height: 40px;
-  margin: 0px auto;
+  height: 100vh;
+  box-shadow: 2px 0 5px var(--shadow-color);
 }
 
-/* Sidebar links */
+.sidebar-scroll-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* For scrollbar */
+}
+
 .sidebar ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; 
 }
 
-.sidebar ul li {
+.sidebar li {
   margin-bottom: 10px;
 }
 
-.sidebar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  padding: 10px 15px; /* Add padding for a better look */
-  display: block;
-  border-radius: 5px; /* Rounded corners for a modern look */
-}
-
-.sidebar ul li a:hover {
-  color: #fff;
-  background-color: #007bff; /* Background color on hover */
-}
-
-/* Dashboard styles */
-.dashboard {
+.sidebar-link {
   display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: var(--sidebar-text-color);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Ensure content area does not overlap with sidebar */
-.dashboard-content {
-  padding: 20px;
-  flex-grow: 1; /* Allow main content to take up remaining space */
+.sidebar-link:hover {
+  background-color: var(--sidebar-hover-background);
+  color: #ffffff;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 20px;
+.sidebar-link svg {
+  margin-right: 15px;
 }
 
-.sidebar-scroll-container {
-  height: calc(100% - 60px); /* Adjust based on your header/logo height */
-  overflow-y: auto;
-  padding-right: 10px; /* Add some padding for the scrollbar */
+.sidebar-link span {
+  font-size: 1.1em;
+}
+
+.sidebar-user-info {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border-color);
+  color: var(--sidebar-text-color);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color); /* Placeholder for avatar */
+  margin-right: 15px;
+}
+
+.user-details {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.user-email {
+  font-size: 0.85em;
+  color: var(--light-text-color);
+}
+
+.logout-icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout-icon:hover {
+  color: var(--danger-color);
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.sidebar-link.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.sidebar-link.active svg {
+  color: #ffffff;
+}
+
+.sidebar-link.active:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
 }

@@ -5,7 +5,7 @@
   .dashboard-content {
     flex-grow: 1;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
   }
   
   .container {
@@ -19,7 +19,7 @@
   
   .header h2 {
     font-size: 24px;
-    color: #333;
+    color: var(--text-color);
   }
   
   .profile-section {
@@ -50,12 +50,12 @@
   .profile-details h3 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #495057;
+    color: var(--text-color);
   }
   
   .profile-details p {
     font-size: 16px;
-    color: #6c757d;
+    color: var(--text-color-secondary);
   }
   
   .password-section {
@@ -65,7 +65,7 @@
   .password-section h3 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #495057;
+    color: var(--text-color);
   }
   
   .password-section .form-group {
@@ -73,20 +73,20 @@
   }
   
   .password-section .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     border-radius: 4px;
     transition: background-color 0.3s;
   }
   
   .password-section .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color-dark);
   }
   
   .notifications-section h3 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #495057;
+    color: var(--text-color);
   }
   
   .form-check {
@@ -102,20 +102,20 @@
   }
   
   .profile-card {
-    background-color: #f0f0f0;
+    background-color: var(--card-background);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     max-width: 500px;
     margin-top: 20px;
   }
   
   .profile-card p {
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-color);
   }
   
   .profile-card strong {
-    color: #555;
+    color: var(--text-color-secondary);
   }
   

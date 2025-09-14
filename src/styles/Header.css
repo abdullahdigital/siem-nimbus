@@ -1,6 +1,6 @@
 .dashboard-header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+    background-color: var(--header-background);
+    border-bottom: 1px solid var(--border-color);
   }
   
   .header-title {
@@ -9,6 +9,32 @@
   
   .user-greeting {
     font-size: 0.875rem;
-    color: #495057;
+    color: var(--light-text-color);
+  }
+  
+  .user-greeting-text {
+    color: var(--text-color);
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
   }
   

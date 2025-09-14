@@ -50,7 +50,7 @@ const UserMgmt = () => {
   };
 
   return (
-    <div className="user-management-page">
+    <div className="user-mgmt-page">
       <h2>User Management</h2>
       <input
         type="text"
